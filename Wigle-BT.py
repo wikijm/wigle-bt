@@ -81,11 +81,12 @@ def main():
         choice = input('        Enter choice (1/2): ')
 
         if choice == '1':
-            netid = input('Enter Bluetooth network MAC address:')
+            netid = input('Enter Bluetooth network MAC address: ')
             location = get_location(netid, config)
 
             if location:
                 print('Location: ' + str(location))
+                print('Google Maps URL:  https://www.google.com/maps/place/' + str(location).replace(' ', '').replace('(', ''))
         elif choice == '2':
             break
         else:
