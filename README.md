@@ -52,17 +52,53 @@ pip3 install -r requirements.txt
 ...to install the required Python libraries.
 
 ## Usage
+
+### Interactive Mode
 Open a terminal or command prompt in the directory where you extracted the files.
 
 Run the command:
 
+```bash
 python3 Wigle-BT.py
+```
 
 Choose option 1 to get the location of a bluetooth device.
 
 Enter the MAC address of the bluetooth device when prompted.
 
 The tool will display the latitude and longitude of the bt device's location.
+
+### Command-Line Mode
+You can also use the tool with command-line parameters for automation and scripting:
+
+```bash
+python3 Wigle-BT.py --mac <MAC_ADDRESS> --output <OUTPUT_FORMAT>
+```
+
+**Parameters:**
+- `--mac`: The MAC address of the Bluetooth device (e.g., `AA:BB:CC:DD:EE:FF`)
+- `--output`: Output format(s), comma-separated. Available formats:
+  - `full-coordinate`: Display coordinates as `(latitude, longitude)`
+  - `latitude`: Display only the latitude value
+  - `longitude`: Display only the longitude value
+  - `google-maps`: Display Google Maps URL with coordinates
+
+**Examples:**
+
+Get Google Maps URL:
+```bash
+python3 Wigle-BT.py --mac AA:BB:CC:DD:EE:FF --output google-maps
+```
+
+Get latitude and longitude separately:
+```bash
+python3 Wigle-BT.py --mac AA:BB:CC:DD:EE:FF --output latitude,longitude
+```
+
+Get all available output formats:
+```bash
+python3 Wigle-BT.py --mac AA:BB:CC:DD:EE:FF --output full-coordinate,latitude,longitude,google-maps
+```
 
 ## License
 This tool is licensed under the MIT license. See the LICENSE file for more information.
