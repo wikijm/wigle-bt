@@ -41,15 +41,23 @@ To use this tool, you need to have Python 3 installed on your system. You also n
 
 ## Installation
 Clone this repository or download the ZIP file and extract it to a directory of your choice.
-Create a file named config.json in the same directory as wigle-bt and add your Wigle.net API key in the following format:
 
-{ "api_auth": "YOUR_API_KEY_HERE" }
+It is highly recommended to use a Python virtual environment. Open a terminal or command prompt in the directory where you extracted the files and run:
 
-Open a terminal or command prompt in the directory where you extracted the files and run the command:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
 
+Then, install the required Python libraries by running:
+
+```bash
 pip3 install -r requirements.txt
+```
 
-...to install the required Python libraries.
+You need a Wigle.net API key to use this tool. When you run the script for the first time, if `config.json` is missing, an interactive assistant will prompt you to enter your API key and will create the configuration file for you automatically.
+
+Alternatively, you can manually create a `config.json` file in the same directory based on the provided `config.json.example` template.
 
 ## Usage
 

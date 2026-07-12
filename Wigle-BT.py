@@ -8,8 +8,20 @@ def load_config():
         with open('config.json', 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        print('Error: config file not found')
-        return None
+        print('Config file not found. Starting interactive configuration...')
+        api_key = input('Please enter your Wigle.net API key (Encoded for Basic Auth): ').strip()
+        if not api_key:
+            print('Error: API key cannot be empty. Exiting.')
+            sys.exit(1)
+        config_data = {"api_auth": api_key}
+        try:
+            with open('config.json', 'w') as f:
+                json.dump(config_data, f, indent=4)
+            print('Successfully created config.json!')
+            return config_data
+        except Exception as e:
+            print(f'Error creating config file: {e}')
+            sys.exit(1)
 
 def get_location(netid, config):
     headers = {
